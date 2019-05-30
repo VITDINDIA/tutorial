@@ -1,0 +1,58 @@
+<script>
+        
+// for php try the below code
+
+//         try {
+//   // Returns a `FacebookFacebookResponse` object
+//   $response = $fb->get(
+//     '/1030941987043221',
+//     '{EAACEdEose0cBAO8oEaBT6ItN8IcCus7Naz8CJkZAG42mMq3D6gPjnesBMFKJMSOyzwgqsqVxQyUtfUZAjwrGYGnpZBaZAB4umV9eAOXox7p5z6jvgRZAvUhkOJVjaIdsqbZBFUggIc8MAlFAZCmSuOWajvNiPwgCLJQwlip1AjkCoKpcoIwPEIOZCTnSVPCe6n1l2w0MEeQEeQZDZD}'
+//   );
+// } catch(FacebookExceptionsFacebookResponseException $e) {
+//   echo 'Graph returned an error: ' . $e->getMessage();
+//   exit;
+// } catch(FacebookExceptionsFacebookSDKException $e) {
+//   echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//   exit;
+// }
+// $graphNode = $response->getGraphNode();
+
+
+
+        function init() {
+            FB.api(
+      '/1030941987043221',
+      'GET',
+      {
+        fields:"leads_count,leads{ad_id,adset_id,adset_name,campaign_id,campaign_name,ad_name,custom_disclaimer_responses,partner_name,post,retailer_item_id,field_data}",
+        access_token : 'EAACEdEose0cBAN0K83sBFWkZC1D2SfgZCfWUKHyrVELKu7NLBs8OXmZBOmNbC9i35vO5GtGwZBl8MViOMQrd5nphVJx0sBBKK1ZAiLVVf2Fcp4okFGvhWuZBqGTnQnasWvJXl4LoZBkzr83YZAu0sIfbLSP0O7aikBGZB4ygkyl9n5ttZBnK13K9l9yTJODQLZBylPRt3z4Dd6cWQZDZD'
+    },
+      function(response) {
+            var result = JSON.stringify(response.leads.data)
+             json.decode(result);
+      }
+    );
+        }
+    
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '527432267652632',
+            xfbml      : true,
+            version    : 'v2.5'
+          });
+    
+          init();
+        };
+    
+        (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <body>
+        <p></p>
+    </body>
